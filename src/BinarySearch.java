@@ -1,5 +1,5 @@
 public class BinarySearch {
-    static void main() {
+    static void main(String[] args) {
         //      int[] nums = {1, 5, 7, 23, 10};
 
         /*
@@ -19,13 +19,25 @@ public class BinarySearch {
         int[] nums = {1, 5, 7, 9, 10, 13, 21};
         int target = 5;
         int contador = 0;
+        int l = nums[0];
+        int r = nums.length - 1;
+        int meio = nums.length / 2; // 6
 
-        // pesquisa simples
-        for (int i = 0; i<= nums.length -1; i++){
+
+       // System.out.println(nums[meio]);
+
+        while (target < r) {
             contador++;
-            if (nums[i] == target){
-                System.out.println(nums[i]);
-                System.out.printf("Quantidade de passos para achar o target %d%n", contador);
+            if (target < nums[meio]) {
+                r = meio;
+                meio = meio /r +1; //
+            } else {
+                l = meio;
+            }
+
+            if (target == meio) {
+                System.out.println(target);
+                System.out.printf("Quantidade de passos para achar o target foi %d%n", contador);
                 break;
             }
         }
